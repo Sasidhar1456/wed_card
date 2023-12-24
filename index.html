@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #fcef98;
+    }
+
+    #book-container {
+      perspective: 1000px;
+      width: 520px;
+      height: 700px;
+      border-left: 10px solid #d59a22;
+      border-right: 10px solid #d59a22;
+    }
+
+    #book {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+
+    .cover, .page {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border: 2px solid #c60610;
+      padding: 20px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      backface-visibility: hidden;
+      transition: transform 1s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .page {
+      display: none;
+      transform: rotateY(-180deg);
+    }
+
+    #book.open .cover {
+      transform: rotateY(180deg);
+      animation: turnPage 1s forwards;
+    }
+
+    #book.open .page {
+      display: flex;
+      transform: rotateY(0deg);
+      animation: turnPage 1s forwards;
+    }
+
+    @keyframes turnPage {
+      from {
+        transform: rotateY(-180deg);
+      }
+      to {
+        transform: rotateY(0deg);
+      }
+    }
+
+    h1, h2, p {
+      margin: 0;
+      color: #c60610;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-top: 15px;
+    }
+
+    p {
+      font-size: 16px;
+      margin: 8px 0;
+    }
+
+    .corner-image {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+    }
+
+    .top-left {
+      top: 35px;
+      left: 10px;
+    }
+
+    .top-right {
+      top: 35px;
+      right: 10px;
+    }
+
+    .page > * {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div id="book-container">
+    <div id="book" onclick="openBook()">
+      <div class="cover">
+        <h1>Muthayala Vari Pelli Pilupu</h1>
+      </div>
+      <div class="page">
+        <div class="corner-image top-left"><img src="https://i.pinimg.com/564x/14/80/5f/14805f15c4304749cfadc4aa0cec8a6b.jpg" height="80px" width="80px"/></div>
+        <div class="corner-image top-right"><img src="https://i.pinimg.com/564x/14/80/5f/14805f15c4304749cfadc4aa0cec8a6b.jpg"  height="80px" width="80px"/></div>
+        
+        <h2>Muthayala Vari Pelli Pilupu</h2>
+        <h2>Chi|| Ravindar</h2>
+        <p></p>
+        <h2>Weds</h2>
+        <h2>Chi La Sow|| Lahari</h2>
+        <p></p>
+        <p>Date: 20th July 2023</p>
+        <p>Muhurtham: 8:30 AM</p>
+        <p>Venue: Sai Baba Kalyana Mandapam, Chirala</p>
+        <h2>Marriage Ceremony</h2>
+        <p>Date: 20-07-23 Time: 8:30 AM</p>
+        <h2>Reception</h2>
+        <p>Date: 21-07-23 Time: 7:00 PM</p>
+        <h2>Request</h2>
+        <p>With the blessings of Mutyala Pandiri Veda Mantras, seek your gracious presence at our auspicious occasion.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openBook() {
+      document.getElementById('book').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
